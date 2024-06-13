@@ -21,7 +21,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdateDto;
 import com.example.demo.user.infrastructure.UserEntity;
-import com.example.demo.user.infrastructure.UserRepository;
+import com.example.demo.user.infrastructure.UserJpaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -36,7 +36,7 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
-    private UserRepository userRepository;
+    private UserJpaRepository userRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test

@@ -1,4 +1,4 @@
-package com.example.demo.user.repository;
+package com.example.demo.user.infrastructure;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -14,16 +14,16 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.infrastructure.UserEntity;
-import com.example.demo.user.infrastructure.UserRepository;
+import com.example.demo.user.infrastructure.UserJpaRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest(showSql = true)
 @TestPropertySource("classpath:test-application.properties")
 @Sql("/sql/user-repository-test-data.sql")
-public class UserRepositoryTest {
+public class UserJpaRepositoryTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserJpaRepository userRepository;
 
     @Test
     void findByIdAndStatus_로_유저_데이터를_찾아올_수_있다() {
