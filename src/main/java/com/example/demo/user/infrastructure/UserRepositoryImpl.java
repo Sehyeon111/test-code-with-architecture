@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.service.port.UserRepository;
 
@@ -16,27 +17,27 @@ public class UserRepositoryImpl implements UserRepository{
 	 private final UserJpaRepository userJpaRepository;
 
 	@Override
-	public Optional<UserEntity> findByIdAndStatus(long id, UserStatus userStatus) {
+	public Optional<User> findByIdAndStatus(long id, UserStatus userStatus) {
 		// TODO Auto-generated method stub
-		return userJpaRepository.findByIdAndStatus(id, userStatus);
+		return userJpaRepository.findByIdAndStatus(id, userStatus).map(userEntity -> userEntity.toModel());
 	}
 
 	@Override
-	public Optional<UserEntity> findByEmailAndStatus(String email, UserStatus userStatus) {
+	public Optional<User> findByEmailAndStatus(String email, UserStatus userStatus) {
 		// TODO Auto-generated method stub
-		return userJpaRepository.findByEmailAndStatus(email, userStatus);
+		return userJpaRepository.findByEmailAndStatus(email, userStatus).map(userEntity -> userEntity.toModel());
 	}
 
 	@Override
-	public Optional<UserEntity> findById(long id) {
+	public Optional<User> findById(long id) {
 		// TODO Auto-generated method stub
-		return userJpaRepository.findById(id);
+		return userJpaRepository.findById(id).map(userEntity -> userEntity.toModel());
 	}
 
 	@Override
-	public UserEntity save(UserEntity userEntity) {
+	public User save(User user) {
 		// TODO Auto-generated method stub
-		return userJpaRepository.save(userEntity);
+		return userJpaRepository.save(UserEntity.fromModel(user)).toModel();
 	}
 
 }

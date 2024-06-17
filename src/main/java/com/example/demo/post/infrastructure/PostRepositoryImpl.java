@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.post.domain.Post;
 import com.example.demo.post.service.port.PostRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,15 +16,15 @@ public class PostRepositoryImpl implements PostRepository {
 	private final PostJpaRepository postJpaRepository;
 
 	@Override
-	public Optional<PostEntity> findById(long id) {
+	public Optional<Post> findById(long id) {
 		// TODO Auto-generated method stub
-		return postJpaRepository.findById(id);
+		return postJpaRepository.findById(id).map(postEntity -> postEntity.toModel());
 	}
 
 	@Override
-	public PostEntity save(PostEntity postEntity) {
+	public Post save(Post post) {
 		// TODO Auto-generated method stub
-		return postJpaRepository.save(postEntity);
+		return postJpaRepository.save(PostEntity.fromModel(post)).toModel();
 	}
 	
 }
