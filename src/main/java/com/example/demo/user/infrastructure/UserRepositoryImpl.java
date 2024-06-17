@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.service.port.UserRepository;
@@ -38,6 +39,12 @@ public class UserRepositoryImpl implements UserRepository{
 	public User save(User user) {
 		// TODO Auto-generated method stub
 		return userJpaRepository.save(UserEntity.fromModel(user)).toModel();
+	}
+
+	@Override
+	public User getById(long writerId) {
+		
+		return findById(writerId).orElseThrow(() -> new ResourceNotFoundException("User", writerId));
 	}
 
 }

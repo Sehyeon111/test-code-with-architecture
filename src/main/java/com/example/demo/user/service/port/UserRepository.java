@@ -7,6 +7,8 @@ import com.example.demo.user.domain.UserStatus;
 
 public interface UserRepository {
 
+	User getById(long writerId);
+	
 	Optional<User> findByIdAndStatus(long id, UserStatus userStatus);
 
     Optional<User> findByEmailAndStatus(String email, UserStatus userStatus);
@@ -14,6 +16,8 @@ public interface UserRepository {
     Optional<User> findById(long id);
 
     User save(User userEntity);
+
+	
 
 	
 }

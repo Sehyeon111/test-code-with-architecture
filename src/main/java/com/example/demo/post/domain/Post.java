@@ -2,6 +2,7 @@ package com.example.demo.post.domain;
 
 import java.time.Clock;
 
+import com.example.demo.common.service.port.ClockHolder;
 import com.example.demo.user.domain.User;
 
 import lombok.Builder;
@@ -31,20 +32,20 @@ public class Post {
 		this.writer = writer;
 	}
 
-    public static Post from(User user,PostCreateDto postCreateDto) {
+    public static Post from(User user,PostCreateDto postCreateDto, ClockHolder clockHolder) {
     	return Post.builder()
     			.content(postCreateDto.getContent())
-    			.createdAt(Clock.systemUTC().millis())
+    			.createdAt(clockHolder.milis())
     			.writer(user)
     			.build();
     }
     
-    public Post update(PostUpdateDto postUpdateDto) {
+    public Post update(PostUpdateDto postUpdateDto, ClockHolder clockHolder) {
     	return Post.builder()
     			.id(id)
     			.content(postUpdateDto.getContent())
     			.createdAt(createdAt)
-    			.modifiedAt(modifiedAt)
+    			.modifiedAt(clockHolder.milis())
     			.writer(writer)
     			.build();	
     }

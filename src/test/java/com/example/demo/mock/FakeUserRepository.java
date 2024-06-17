@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.service.port.UserRepository;
@@ -57,6 +58,12 @@ public class FakeUserRepository implements UserRepository{
 		}
 		
 		
+	}
+
+	@Override
+	public User getById(long writerId) {
+		
+		return findById(writerId).orElseThrow(() -> new ResourceNotFoundException("User", writerId));
 	}
 
 }
