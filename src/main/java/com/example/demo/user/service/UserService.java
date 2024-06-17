@@ -12,9 +12,11 @@ import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdateDto;
 import com.example.demo.user.service.port.UserRepository;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Builder
 @RequiredArgsConstructor
 public class UserService {
 
