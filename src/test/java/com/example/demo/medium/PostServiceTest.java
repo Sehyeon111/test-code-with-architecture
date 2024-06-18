@@ -14,7 +14,7 @@ import com.example.demo.post.domain.Post;
 import com.example.demo.post.domain.PostCreateDto;
 import com.example.demo.post.domain.PostUpdateDto;
 import com.example.demo.post.infrastructure.PostEntity;
-import com.example.demo.post.service.PostService;
+import com.example.demo.post.service.PostServiceImpl;
 
 @SpringBootTest
 @TestPropertySource("classpath:test-application.properties")
@@ -25,7 +25,7 @@ import com.example.demo.post.service.PostService;
 public class PostServiceTest {
 
     @Autowired
-    private PostService postService;
+    private PostServiceImpl postService;
 
     @Test
     void getById는_존재하는_게시물을_내려준다() {

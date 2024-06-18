@@ -18,15 +18,15 @@ import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdateDto;
 import com.example.demo.user.service.port.MailSender;
 
-public class UserServiceTest {
+public class UserServiceImplTest {
 
-    private UserService userService;
+    private UserServiceImpl userService;
     
     @BeforeEach
     void init() {
     	MailSender fakeMailSender = new FakeMailSender();
     	FakeUserRepository fakeUserRepository = new FakeUserRepository();
-    	userService = UserService.builder()
+    	userService = UserServiceImpl.builder()
     			.certificationService(new CertificationService(fakeMailSender))
     			.clockHolder(new TestClockHolder(1678530673958L))
     			.userRepository(fakeUserRepository)

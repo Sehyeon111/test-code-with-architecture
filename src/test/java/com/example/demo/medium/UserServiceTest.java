@@ -23,7 +23,7 @@ import com.example.demo.user.domain.UserCreateDto;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdateDto;
 import com.example.demo.user.infrastructure.UserEntity;
-import com.example.demo.user.service.UserService;
+import com.example.demo.user.service.UserServiceImpl;
 
 @SpringBootTest
 @TestPropertySource("classpath:test-application.properties")
@@ -34,7 +34,7 @@ import com.example.demo.user.service.UserService;
 public class UserServiceTest {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
     @MockBean
     private JavaMailSender mailSender;
 

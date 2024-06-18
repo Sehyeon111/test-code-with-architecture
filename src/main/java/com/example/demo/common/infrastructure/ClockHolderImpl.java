@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.example.demo.common.service.port.ClockHolder;
 
 @Component
-public class ClockGolderImpl implements ClockHolder{
+public class ClockHolderImpl implements ClockHolder{
 
 	@Override
 	public long milis() {
