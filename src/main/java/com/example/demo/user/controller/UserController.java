@@ -18,7 +18,7 @@ import com.example.demo.user.controller.port.UserService;
 import com.example.demo.user.controller.response.MyProfileResponse;
 import com.example.demo.user.controller.response.UserResponse;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserUpdateDto;
+import com.example.demo.user.domain.UserUpdate;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -72,7 +72,7 @@ public class UserController {
     public ResponseEntity<MyProfileResponse> updateMyInfo(
         @Parameter(name = "EMAIL", in = ParameterIn.HEADER)
         @RequestHeader("EMAIL") String email, // 일반적으로 스프링 시큐리티를 사용한다면 UserPrincipal 에서 가져옵니다.
-        @RequestBody UserUpdateDto userUpdateDto
+        @RequestBody UserUpdate userUpdateDto
     ) {
         User user = userService.getByEmail(email);
         user = userService.update(user.getId(), userUpdateDto);

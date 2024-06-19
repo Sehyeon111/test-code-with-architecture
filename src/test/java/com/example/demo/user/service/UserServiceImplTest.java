@@ -13,9 +13,9 @@ import com.example.demo.mock.FakeUserRepository;
 import com.example.demo.mock.TestClockHolder;
 import com.example.demo.mock.TestUuidHolder;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserCreateDto;
+import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.domain.UserUpdateDto;
+import com.example.demo.user.domain.UserUpdate;
 import com.example.demo.user.service.port.MailSender;
 
 public class UserServiceImplTest {
@@ -99,7 +99,7 @@ public class UserServiceImplTest {
     @Test
     void userCreateDto_를_이용하여_유저를_생성할_수_있다() {
         // given
-        UserCreateDto userCreateDto = UserCreateDto.builder()
+        UserCreate userCreateDto = UserCreate.builder()
             .email("kok202@kakao.com")
             .address("Gyeongi")
             .nickname("kok202-k")
@@ -117,7 +117,7 @@ public class UserServiceImplTest {
     @Test
     void userUpdateDto_를_이용하여_유저를_수정할_수_있다() {
         // given
-        UserUpdateDto userUpdateDto = UserUpdateDto.builder()
+        UserUpdate userUpdateDto = UserUpdate.builder()
             .address("Incheon")
             .nickname("kok202-n")
             .build();

@@ -41,7 +41,7 @@ public class User {
 		this.lastLoginAt = lastLoginAt;
 	}
 
-	public static User from(UserCreateDto userCreate, UuidHolder uuidHolder) {
+	public static User from(UserCreate userCreate, UuidHolder uuidHolder) {
 		User user = User.builder()
         		.email(userCreate.getEmail())
         		.nickname(userCreate.getNickname())
@@ -52,7 +52,7 @@ public class User {
 		return user;
 	}
 
-	public User update(UserUpdateDto userUpdateDto) {
+	public User update(UserUpdate userUpdateDto) {
 		return User.builder()
 				.id(id)
 				.email(email)

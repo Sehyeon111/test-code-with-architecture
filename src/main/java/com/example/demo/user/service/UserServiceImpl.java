@@ -8,9 +8,9 @@ import com.example.demo.common.service.port.ClockHolder;
 import com.example.demo.common.service.port.UuidHolder;
 import com.example.demo.user.controller.port.UserService;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserCreateDto;
+import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.domain.UserUpdateDto;
+import com.example.demo.user.domain.UserUpdate;
 import com.example.demo.user.service.port.UserRepository;
 
 import lombok.Builder;
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional
-    public User create(UserCreateDto userCreateDto) {
+    public User create(UserCreate userCreateDto) {
     	User user = User.from(userCreateDto, uuidHolder);
     	user = userRepository.save(user);
         certificationService.send(userCreateDto.getEmail(), user.getId(), user.getCertificationCode());
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional
-    public User update(long id, UserUpdateDto userUpdateDto) {
+    public User update(long id, UserUpdate userUpdateDto) {
     	User user = getById(id);
     	user = user.update(userUpdateDto);	// 업데이트는 도메인 객체에서 실행해 주는게 맞음
         user = userRepository.save(user);

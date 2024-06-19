@@ -38,7 +38,7 @@ public class UserRepositoryImpl implements UserRepository{
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
-		return userJpaRepository.save(UserEntity.fromModel(user)).toModel();
+		return userJpaRepository.save(UserEntity.from(user)).toModel();
 	}
 
 	@Override

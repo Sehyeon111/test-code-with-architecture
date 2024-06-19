@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.user.controller.port.UserService;
 import com.example.demo.user.controller.response.UserResponse;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserCreateDto;
+import com.example.demo.user.domain.UserCreate;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Builder;
@@ -26,7 +26,7 @@ public class UserCreateController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateDto userCreateDto) {
+    public ResponseEntity<UserResponse> create(@RequestBody UserCreate userCreateDto) {
         User user = userService.create(userCreateDto);
         return ResponseEntity
             .status(HttpStatus.CREATED)

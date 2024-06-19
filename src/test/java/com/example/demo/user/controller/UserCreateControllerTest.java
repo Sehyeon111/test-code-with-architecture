@@ -26,7 +26,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.example.demo.mock.TestContainer;
 import com.example.demo.user.controller.response.UserResponse;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserCreateDto;
+import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -38,14 +38,14 @@ public class UserCreateControllerTest {
     	TestContainer testContainer = TestContainer.builder()
     			.uuidHolder(()->"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa")
     			.build();
-    	UserCreateDto userCreate = UserCreateDto.builder()
+    	UserCreate userCreate = UserCreate.builder()
     			.email("ssehn9327@gmail.com")
     			.nickname("ssehn9327")
     			.address("Deajeon")
     			.build();
     
         // when
-    	ResponseEntity<UserResponse> result = testContainer.userCreateController.createUser(userCreate);
+    	ResponseEntity<UserResponse> result = testContainer.userCreateController.create(userCreate);
         // then
     	assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(201));
     	assertThat(result.getBody()).isNotNull();

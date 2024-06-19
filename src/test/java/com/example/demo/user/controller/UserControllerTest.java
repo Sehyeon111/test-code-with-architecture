@@ -15,7 +15,7 @@ import com.example.demo.user.controller.response.MyProfileResponse;
 import com.example.demo.user.controller.response.UserResponse;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.domain.UserUpdateDto;
+import com.example.demo.user.domain.UserUpdate;
 
 public class UserControllerTest {
 
@@ -147,7 +147,7 @@ public class UserControllerTest {
 				.lastLoginAt(100L)
 				.status(UserStatus.ACTIVE)
     			.build());
-    	UserUpdateDto userUpdate = UserUpdateDto.builder()
+    	UserUpdate userUpdate = UserUpdate.builder()
     			.address("Pangyo")
     			.nickname("ssehn93277")
     			.build();

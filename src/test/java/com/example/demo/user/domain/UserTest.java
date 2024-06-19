@@ -14,7 +14,7 @@ public class UserTest {
 	@Test
 	public void User는_CreateUserDTO_객체로_생성할_수_있다() {
 		//given
-		UserCreateDto userCreate = UserCreateDto.builder()
+		UserCreate userCreate = UserCreate.builder()
 				.email("ssehn9327@gmail.com")
 				.nickname("ssehn9327")
 				.address("Deajeon")
@@ -43,7 +43,7 @@ public class UserTest {
 				.status(UserStatus.ACTIVE)
 				.build();
 		
-		UserUpdateDto userUpdate = UserUpdateDto.builder()
+		UserUpdate userUpdate = UserUpdate.builder()
 				.nickname("ssehn9324")
 				.address("Pangyo")
 				.build();
