@@ -12,7 +12,6 @@ public class CertificationService{
 
     private final MailSender mailSender;
     
-//    @Override
     public void send(String email, Long userId ,String certificationCode) {
     	String certificationUrl = generateCertificationUrl(userId, certificationCode);
     	String title = "Please certify your email address";
@@ -20,7 +19,6 @@ public class CertificationService{
         mailSender.send(email, title, content);
     }
 
-//    @Override
     public String generateCertificationUrl(Long userId, String CertificationCode) {
         return "http://localhost:8080/api/users/" + userId + "/verify?certificationCode=" + CertificationCode;
     }
